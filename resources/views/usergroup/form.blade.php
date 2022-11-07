@@ -14,9 +14,9 @@
                 </div>
                 <div class="modal-body">
                     <div class="form-group row">
-                        <label for="nama_merk_barang" class="col-md-6"> Merk Barang </label>
+                        <label for="user_group_name" class="col-md-6"> User Group Name</label>
                         <div class="col-md-6">
-                            <input type="text" name="nama_merk_barang" id="nama_merk_barang" class="form-control" required autofocus>
+                            <input type="text" name="user_group_name" id="user_group_name" class="form-control" required autofocus>
                             <span class="help-block with-errors"></span>
 
                         </div>

@@ -64,7 +64,7 @@ return [
     |--------------------------------------------------------------------------
     |
     | Here you may specify the default timezone for your application, which
-    | will be used by the PHP date and date-time functions. We have gone
+    | will be used by the PHP date and date-time functions. We have gophp atne
     | ahead and set this to a sensible default for you out of the box.
     |
     */
@@ -186,6 +186,7 @@ return [
          * Package Service Providers...
          */
         Yajra\DataTables\DataTablesServiceProvider::class,
+        Milon\Barcode\BarcodeServiceProvider::class,
 
         /*
          * Application Service Providers...
@@ -211,11 +212,20 @@ return [
     |
     */
 
-    'aliases' => Facade::defaultAliases()->merge([
-        // 'ExampleClass' => App\Example\ExampleClass::class,
-        
-    'DataTables' => Yajra\DataTables\Facades\DataTables::class,
-    ])->toArray(),
+    // 'aliases' => Facade::defaultAliases()->merge([
+    //     // 'ExampleClass' => App\Example\ExampleClass::class,
+    //     'DataTables' => Yajra\DataTables\Facades\DataTables::class,
+    //     'PDF' => Barryvdh\DomPDF\Facade::class,
+    //     'DNS1D' => Milon\Barcode\Facades\DNS1DFacade::class,
+    //     'DNS2D' => Milon\Barcode\Facades\DNS2DFacade::class,
 
+    // ])->toArray(),
 
+    'aliases' => [
+        'DataTables' => Yajra\DataTables\Facades\DataTables::class,
+        'PDF' => Barryvdh\DomPDF\Facade::class,
+        'DNS1D' => Milon\Barcode\Facades\DNS1DFacade::class,
+        'DNS2D' => Milon\Barcode\Facades\DNS2DFacade::class,
+    ],
+    
 ];

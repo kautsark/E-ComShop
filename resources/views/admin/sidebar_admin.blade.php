@@ -47,7 +47,7 @@
               </a>
             </li>
             <li class="nav-item">
-              <a href="#" class="nav-link"> 
+              <a href="{{ route('usergroup.index') }}" class="nav-link"> 
                 <i class="far fa-circle nav-icon" aria-hidden="true"></i>
                 <p class="mr-2 d-none d-lg-inline text-gray-800 small">Setup Group User</p>
               </a>
@@ -59,7 +59,7 @@
               </a>
             </li>
             <li class="nav-item">
-              <a href="#" class="nav-link"> 
+              <a href="{{ route('barang.index') }}" class="nav-link"> 
                 <i class="far fa-circle nav-icon" aria-hidden="true"></i>
                 <p class="mr-2 d-none d-lg-inline text-gray-800 small">Setup Barang</p>
               </a>

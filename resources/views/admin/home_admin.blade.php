@@ -5,6 +5,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="csrf-token" content={{ csrf_token() }}>
   <title>{{ config('app.name') }} || @yield('title') </title>
 
   <!-- Google Font: Source Sans Pro -->
@@ -81,6 +82,8 @@
 <script src="{{ asset('AdminAutoBot/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js')}}"></script>
 <!-- AdminLTE App -->
 <script src="{{ asset('AdminAutoBot/dist/js/adminlte.js')}}"></script>
+
+<script src="{{ asset('AdminAutoBot/plugins/jquery-ui/jquery-ui.min.js')}}"></script>
 
 <!-- PAGE PLUGINS -->
 <!-- jQuery Mapael -->

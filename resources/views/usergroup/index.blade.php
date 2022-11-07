@@ -1,12 +1,12 @@
 @extends('admin.home_admin')
 
 @section('title')
-    Merk Barang
+    User group
 @endsection
 
 @section('breadcrumb')
   @parent
-    <li class="active"> Merk Barang </li>
+    <li class="active"> User group </li>
 @endsection
 
 @section('content')
@@ -17,14 +17,14 @@
       <div class="col-md-12">
         <div class="box">
             <div class="box-header with-border mb-2">
-                <button onclick="addForm('{{ route('merkbarang.store') }}')" class="btn btn-success btn-xs btn-flat"> 
+                <button onclick="addForm('{{ route('usergroup.store') }}')" class="btn btn-success btn-xs btn-flat"> 
                   <i class="fa fa-plus-circle" aria-hidden="true"></i> Tambah </button>
             </div>
               <div class="box-body table-responsive">
                   <table class="table table-stiped table-bordered">
                     <thead>
                         <th width="5%"> No </th>
-                        <th> Merk Barang </th>
+                        <th> User Group </th>
                         <th width="15%"><i class="fa fa-cogs"></i> Aksi </th>
                     </thead>
                     <tbody>
@@ -45,7 +45,7 @@
     </div>
   </div><!--/. container-fluid -->
 
-  @includeIf('merkbarang.form')
+  @includeIf('usergroup.form')
 @endsection
 
 @push('scripts')
@@ -57,17 +57,17 @@
         processing:true,
         autoWidth:false,
         ajax:{
-          url: '{{ route('merkbarang.data') }}',
+          url: '{{ route('usergroup.data') }}',
         },
         columns:[
           { data : 'DT_RowIndex',searchable: false, sortable : false},
-          { data:'nama_merk_barang'},
+          { data:'user_group_name'},
           { data:'aksi',searchable: false, sortable : false},
         ]
       });
 
       $('#modal-form').validator().on('submit',function(e){
-        if(!e.preventDefault()) {
+        if(! e.preventDefault()) {
             $.ajax({
               url: $('#modal-form form').attr('action'),
               type:'post',
@@ -87,49 +87,12 @@
     
     function addForm(url){
       $('#modal-form').modal('show');
-      $('#modal-form .modal-title').text('Tambah Merk Barang');
+      $('#modal-form .modal-title').text('Tambah User Group');
 
       $('#modal-form form')[0].reset();
       $('#modal-form form').attr('action', url);
       $('#modal-form [name=_method]').val('post');
-      $('#modal-form [name=nama_merk_barang]').focus();
-    }
-
-    function editForm(url){
-      $('#modal-form').modal('show');
-      $('#modal-form .modal-title').text('Edit Merk Barang');
-
-      $('#modal-form form')[0].reset();
-      $('#modal-form form').attr('action', url);
-      $('#modal-form [name=_method]').val('put');
-      $('#modal-form [name=nama_merk_barang]').focus();
-
-      $.get(url)
-        .done((response) => {
-          $('#modal-form [name=nama_merk_barang]').val(response.nama_merk_barang);
-        })
-        .fail((errors) => {
-          alert('Tidak dapat menampilkan data');
-          return;
-        })
-    }
-
-    function deleteData(url){
-      if(confirm('Apakah data ini akan dihapus?'))
-      {
-        $.post(url,{
-          '_token' : $('[name=csrf-token]').attr('content'),
-          '_method' : 'delete'
-        })
-        .done((response) => {
-          alert('Data berhasil dihapus');
-          table.ajax.reload();
-        })
-        .fail((errors) =>  {
-          alert('Tidak dapat menghapus data');
-          return;
-        })
-      }  
+      $('#modal-form [name=user_group_name]').focus();
     }
 
   </script>

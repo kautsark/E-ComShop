@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\MerkBarang;
+use App\Models\UserGroup;
 
-class MerkBarangController extends Controller
+class UserGroupController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,24 +14,24 @@ class MerkBarangController extends Controller
      */
     public function index()
     {
-        return view('merkbarang.index');
+        //
+        return view('usergroup.index');
     }
 
     public function data()
     {
-        $merk_brg = MerkBarang::orderBy('id_merk','asc')->get();
+        $usrGrp = UserGroup::orderBy('id','asc')->get();
 
         return DataTables()
-            ->of($merk_brg)
+            ->of($usrGrp)
             ->addIndexColumn()
-            ->addColumn('aksi', function($merk_brg) {
+            ->addColumn('aksi', function($usrGrp) {
                 return '
-                 <button onclick="editForm(`'. route('merkbarang.update', $merk_brg->id_merk) .'`)" class = "btn btn-xs btn-info btn-flat"><i class= "fa fa-edit"></i> </button>
-                 <button onclick="deleteData(`'. route('merkbarang.destroy', $merk_brg->id_merk) .'`)" class = "btn btn-xs btn-danger btn-flat"><i class= "fa fa-trash"></i> </button>';
+                 <button class = "btn btn-xs btn-info btn-flat"><i class= "fa fa-edit"></i> </button>
+                 <button class = "btn btn-xs btn-danger btn-flat"><i class= "fa fa-trash"></i> </button>';
             })
             ->rawColumns(['aksi'])
             ->make(true);
-
     }
 
     /**
@@ -53,9 +53,9 @@ class MerkBarangController extends Controller
     public function store(Request $request)
     {
         //
-        $mrk_brg = new MerkBarang();
-        $mrk_brg->nama_merk_barang = $request->nama_merk_barang;
-        $mrk_brg->save();
+        $user_grp = new UserGroup();
+        $user_grp->user_group_name = $request->user_group_name;
+        $user_grp->save();
 
         return response()->json('Data berhasil disimpan', 200);
     }
@@ -68,9 +68,7 @@ class MerkBarangController extends Controller
      */
     public function show($id)
     {
-        $merk_brg = MerkBarang::find($id);
-
-        return response()->json($merk_brg);
+        //
     }
 
     /**
@@ -93,12 +91,7 @@ class MerkBarangController extends Controller
      */
     public function update(Request $request, $id)
     {
-        ////
-        $mrk_brg = MerkBarang::find($id);
-        $mrk_brg->nama_merk_barang = $request->nama_merk_barang;
-        $mrk_brg->update();
-
-        return response()->json('Data berhasil disimpan', 200);
+        //
     }
 
     /**
@@ -109,11 +102,6 @@ class MerkBarangController extends Controller
      */
     public function destroy($id)
     {
-        $merk_brg = MerkBarang::find($id);
-        $merk_brg->delete();
-
-        return response(null,204);
-
-        
+        //
     }
 }

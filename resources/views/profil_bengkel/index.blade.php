@@ -1,12 +1,12 @@
 @extends('admin.home_admin')
 
 @section('title')
-    Merk Barang
+    Profil Bengkel
 @endsection
 
 @section('breadcrumb')
   @parent
-    <li class="active"> Merk Barang </li>
+    <li class="active"> Profil Bengkel </li>
 @endsection
 
 @section('content')
