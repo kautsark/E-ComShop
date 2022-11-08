@@ -17,7 +17,7 @@
             @foreach ($dataBarang as $key=>$barang)
                 <td class="text-center" style="border: 1px solid;">
                     <p> {{ $barang->nama_barang }} - Rp. {{format_uang($barang->harga_modal) }}</p>
-                    <img src="data:image/png;base64,{{ DNS1D::getBarcodePNG($barang->kode_barang,'C39') }} " 
+                    <img src="data:image/png;base64,{{ DNS1D::getBarcodePNG($barang->kode_barang,'C39') }}" 
                     alt="{{ $barang->kode_barang }}" 
                     width="180" height="60"
                     />
